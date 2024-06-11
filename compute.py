@@ -2,7 +2,7 @@ import sys
 
 def display_output(threshold,actualLimit,userInput):
     remainingLimit=actualLimit
-    if actualLimit==0.0 or sum(userInput)==0.0 or max(userInput)<=threshold:
+    if actualLimit==0.0:
         for item in userInput:
             print(0.0)
         print(0.0)
@@ -31,7 +31,9 @@ except ValueError:
 userInput = []
 for line in sys.stdin:
     try:
-        #checking if the usser input has reached the max count
+
+        # The assumption here is to end the inputs we need to Press Ctrl+D (or Ctrl+Z+Enter on Windows) to end the input.
+        #checking if the user input has reached the max count
         if(len(userInput)>99):
             print(f'maximum number of inputs reached')
             break
